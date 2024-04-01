@@ -1,0 +1,20 @@
+digraph G {
+	graph [dpi=300]
+	node [shape=box nojustify=false] 
+	node0 [label="label:.LFB6 function:add1\l        pushq   %rbp\l        movq    %rsp, %rbp\l        movq    %rdi, -8(%rbp)\l        movq    -8(%rbp), %rax\l        movl    (%rax), %eax\l        leal    1(%rax), %edx\l        movq    -8(%rbp), %rax\l        movl    %edx, (%rax)\l        nop\l        popq    %rbp\l        ret\l"];
+	node1 [label="label:.LFB7 function:main\l        pushq   %rbp\l        movq    %rsp, %rbp\l        subq    $16, %rsp\l        movl    $17, -8(%rbp)\l        movl    -8(%rbp), %eax\l        cmpl    $5, %eax\l        jle     .L3\l"];
+	node2 [label="label:.LFB7_1 function:main\l        movl    -8(%rbp), %eax\l        addl    $5, %eax\l        movl    %eax, -8(%rbp)\l        jmp     .L4\l"];
+	node3 [label="label:.L3 function:main\l        movl    -8(%rbp), %eax\l        subl    $5, %eax\l        movl    %eax, -8(%rbp)\l"];
+	node4 [label="label:.L4 function:main\l        leaq    -8(%rbp), %rax\l        movq    %rax, %rdi\l        call    add1\l        movl    -8(%rbp), %eax\l        movl    %eax, %esi\l        movl    $.LC0, %edi\l        movl    $0, %eax\l        call    printf\l        movl    $0, -4(%rbp)\l        jmp     .L5\l"];
+	node5 [label="label:.L6 function:main\l        movl    -8(%rbp), %edx\l        movl    -4(%rbp), %eax\l        addl    %edx, %eax\l        movl    %eax, %esi\l        movl    $.LC1, %edi\l        movl    $0, %eax\l        call    printf\l        addl    $1, -4(%rbp)\l"];
+	node6 [label="label:.L5 function:main\l        movl    -8(%rbp), %eax\l        cltd\l        xorl    %edx, %eax\l        subl    %edx, %eax\l        cmpl    %eax, -4(%rbp)\l        jl      .L6\l"];
+	node7 [label="label:.L5_1 function:main\l        movl    -8(%rbp), %eax\l        addl    $7, %eax\l        movl    %eax, -8(%rbp)\l        movl    $0, %eax\l        leave\l        ret\l"];
+	node1 -> node3;
+	node1 -> node2;
+	node2 -> node4;
+	node3 -> node4;
+	node4 -> node6;
+	node5 -> node6;
+	node6 -> node5;
+	node6 -> node7;
+}
